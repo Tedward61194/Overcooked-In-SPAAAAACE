@@ -1,14 +1,31 @@
 extends CharacterBody3D
 
-
+# constants
 const SPEED := 5.0
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
+# config
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+# refs
+#var reach : RayCast3D = $Pivot/MeshInstance3d/Reach
+
+# logic
+#var looking_at = null
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+
+#func _process(delta):
+#	var coll = reach.get_collider()
+#
+#	if coll != looking_at: # Looking at something new
+#		if coll != null and "targeted" in coll:
+#			coll.targeted = true
+#		if looking_at != null and "targeted" in looking_at:
+#			looking_at.targed = false
+#
+#		looking_at = coll
 
 
 func _physics_process(delta) -> void:

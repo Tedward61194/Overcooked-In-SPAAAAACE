@@ -1,24 +1,1494 @@
-[gd_scene load_steps=3 format=3 uid="uid://davmdwsjk838n"]
+[gd_scene load_steps=10 format=3 uid="uid://davmdwsjk838n"]
 
-[ext_resource type="MeshLibrary" uid="uid://cy8l5hkeyui61" path="res://assets/mesh_libs/PrototypeBlocks.tres" id="1_6gdcc"]
-[ext_resource type="PackedScene" uid="uid://brdtoqw5umber" path="res://assets/scenes/player/Player.tscn" id="2_xv1ii"]
+[ext_resource type="PackedScene" uid="uid://cqn2qf88ciqpw" path="res://assets/scenes/player/Player.tscn" id="2_xv1ii"]
+[ext_resource type="PackedScene" uid="uid://daevix1m2wo3h" path="res://assets/scenes/prototype_blocks/DarkGrayCube.tscn" id="3_3sh44"]
+[ext_resource type="PackedScene" uid="uid://bseo0pb030afj" path="res://assets/scenes/prototype_blocks/LightGrayCube.tscn" id="3_xoxby"]
+[ext_resource type="PackedScene" uid="uid://cvnebub80be8t" path="res://assets/scenes/prototype_blocks/MedGrayCube.tscn" id="4_gnr4w"]
+[ext_resource type="PackedScene" uid="uid://cnjymyv1btuqo" path="res://assets/scenes/prototype_blocks/GreenCube.tscn" id="5_3e2fo"]
+
+[sub_resource type="Shader" id="Shader_l6rhr"]
+code = "shader_type spatial;
+uniform float strength;
+
+void fragment() {
+	ALBEDO = vec3(0.88, 1.0, 0.0);
+	ALPHA = strength;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mrfjw"]
+render_priority = 0
+shader = SubResource("Shader_l6rhr")
+shader_parameter/strength = null
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fa05i"]
+next_pass = SubResource("ShaderMaterial_mrfjw")
+albedo_color = Color(0, 0.48, 0.12, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_36fp7"]
+material = SubResource("StandardMaterial3D_fa05i")
 
 [node name="Node3d" type="Node3D"]
 
-[node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("1_6gdcc")
-cell_size = Vector3(1, 1, 1)
-data = {
-"cells": PackedInt32Array(-65527, 4, 0, -65527, 3, 0, -65527, 2, 0, -65527, 1, 0, -65527, 0, 0, -65527, 65531, 0, -65528, 4, 786432, -10, 4, 786432, -9, 4, 786432, -10, 3, 786432, -10, 65531, 786432, -9, 65531, 786432, -9, 65532, 0, -10, 65532, 0, -65528, 65531, 0, -65529, 65531, 0, -65530, 65531, 0, -65531, 65531, 0, -65532, 65531, 0, -65533, 65531, 0, -65534, 65531, 0, -65535, 65531, 0, -65536, 65531, 0, -1, 65531, 0, -2, 65531, 0, -3, 65531, 0, -4, 65531, 0, -5, 65531, 0, -6, 65531, 0, -7, 65531, 0, -8, 65531, 0, -10, 65533, 0, -10, 65534, 0, -10, 65535, 0, -10, 0, 0, -10, 1, 0, -10, 2, 0, -8, 4, 0, -7, 4, 0, -6, 4, 0, -5, 4, 0, -4, 4, 0, -65536, 4, 0, -65535, 4, 0, -65534, 4, 0, -65533, 4, 0, -65532, 4, 0, -65530, 4, 0, -65529, 4, 0, -3, 4, 0, -2, 4, 0, -1, 4, 0, -65532, 1, 0, -65532, 0, 0, -65531, 0, 0, -65527, 65532, 0, -65527, 65533, 0, -65527, 65534, 0, -65527, 65535, 0, -65531, 4, 0, -65528, 3, 0, -65529, 3, 0, -65530, 3, 0, -65531, 3, 0, -65532, 3, 0, -65533, 3, 0, -65534, 3, 0, -65535, 3, 0, -65536, 3, 0, -1, 3, 0, -2, 3, 0, -3, 3, 0, -4, 3, 0, -5, 3, 0, -6, 3, 0, -7, 3, 0, -8, 3, 0, -9, 3, 0, -9, 2, 0, -9, 1, 0, -9, 0, 0, -9, 65534, 0, -9, 65535, 0, -9, 65533, 0, -8, 65532, 0, -6, 65532, 0, -5, 65532, 0, -4, 65532, 0, -3, 65532, 0, -2, 65532, 0, -2, 65533, 0, -1, 65533, 0, -65536, 65533, 0, -3, 65533, 0, -4, 65533, 0, -7, 65532, 0, -8, 65533, 0, -7, 65533, 0, -6, 65533, 0, -5, 65533, 0, -4, 65534, 0, -5, 65534, 0, -5, 65535, 0, -6, 65535, 0, -7, 65535, 0, -8, 65535, 0, -8, 65534, 0, -7, 65534, 0, -4, 65535, 0, -6, 65534, 0, -8, 0, 0, -7, 0, 0, -6, 0, 0, -5, 0, 0, -4, 0, 0, -3, 0, 0, -2, 0, 0, -8, 1, 0, -7, 1, 0, -6, 1, 0, -5, 1, 0, -4, 1, 0, -3, 1, 0, -2, 1, 0, -1, 1, 0, -8, 2, 0, -7, 2, 0, -6, 2, 0, -5, 2, 0, -4, 2, 0, -3, 2, 0, -2, 2, 0, -1, 2, 0, -1, 65532, 0, -65536, 65532, 0, -65535, 65532, 0, -65534, 65532, 0, -65533, 65532, 0, -65532, 65532, 0, -65531, 65532, 0, -65530, 65532, 0, -65528, 65532, 0, -65529, 65532, 0, -65528, 65533, 0, -65529, 65533, 0, -65530, 65533, 0, -65531, 65533, 0, -65532, 65533, 0, -65533, 65533, 0, -65534, 65533, 0, -65535, 65533, 0, -3, 65534, 0, -3, 65535, 0, -2, 65534, 0, -2, 65535, 0, -1, 65534, 0, -65536, 65534, 0, -65535, 65534, 0, -65534, 65534, 0, -65533, 65534, 0, -65532, 65534, 0, -65531, 65534, 0, -65530, 65534, 0, -65529, 65534, 0, -65528, 65534, 0, -65528, 65535, 0, -65528, 0, 0, -65528, 1, 0, -65528, 2, 0, -65529, 2, 0, -65530, 2, 0, -65531, 2, 0, -65532, 2, 0, -65533, 2, 0, -65534, 2, 0, -65535, 2, 0, -65536, 2, 0, -65536, 1, 0, -65536, 0, 0, -1, 0, 0, -1, 65535, 0, -65536, 65535, 0, -65535, 65535, 0, -65534, 65535, 0, -65533, 65535, 0, -65532, 65535, 0, -65531, 65535, 0, -65530, 65535, 0, -65529, 65535, 0, -65529, 0, 0, -65529, 1, 0, -65530, 1, 0, -65530, 0, 0, -65531, 1, 0, -65533, 0, 0, -65534, 0, 0, -65535, 0, 0, -65535, 1, 0, -65534, 1, 0, -65533, 1, 0, 65525, 65535, 2, 65525, 65534, 2, 65525, 65533, 2, 65525, 65532, 2, 65525, 0, 2, 65525, 1, 2, 65525, 2, 2, 65525, 3, 2, 65525, 4, 2, 65525, 5, 2, 65526, 5, 2, 65527, 5, 2, 65528, 5, 2, 65529, 5, 2, 65530, 5, 2, 65531, 5, 2, 65532, 5, 2, 65533, 5, 2, 65534, 5, 2, 65535, 5, 196610, 0, 5, 196610, 1, 5, 196610, 2, 5, 196610, 3, 5, 196610, 4, 5, 196610, 5, 5, 196610, 6, 5, 196610, 7, 5, 196610, 9, 5, 196610, 8, 5, 196610, 10, 65531, 196610, 10, 65534, 196610, 10, 5, 196610, 10, 4, 196610, 10, 3, 196610, 10, 2, 196610, 10, 65533, 196610, 10, 65532, 196610, 10, 65530, 196610, 9, 65530, 196610, 8, 65530, 196610, 7, 65530, 196610, 6, 65530, 196610, 5, 65530, 196610, 4, 65530, 196610, 3, 65530, 196610, 2, 65530, 196610, 1, 65530, 196609, 0, 65530, 196610, 65535, 65530, 196610, 65534, 65530, 196610, 65533, 65530, 196610, 65532, 65530, 196610, 65531, 65530, 196610, 65530, 65530, 196610, 65529, 65530, 196610, 65528, 65530, 196610, 65527, 65530, 196610, 65526, 65530, 196610, 65525, 65531, 196610, 65525, 65530, 196610, 131061, 65530, 196610, 131061, 65531, 196610, 131061, 65532, 196610, 131061, 65533, 196610, 131061, 65534, 196610, 131061, 65535, 196610, 131061, 0, 196610, 131061, 1, 196610, 131061, 2, 196610, 131061, 3, 196610, 131061, 4, 196610, 131061, 5, 196610, 131062, 5, 196610, 131063, 5, 196610, 131064, 5, 196610, 131065, 5, 196610, 131066, 5, 196610, 131067, 5, 196610, 131068, 5, 196610, 131069, 5, 196610, 131070, 5, 196610, 131071, 5, 196610, 65536, 5, 196610, 65537, 5, 196610, 65538, 5, 196610, 65539, 5, 196610, 65540, 5, 196610, 65541, 5, 196610, 65542, 5, 196610, 65543, 5, 196610, 65544, 5, 196610, 65545, 5, 196610, 65546, 5, 196610, 65546, 4, 196610, 65546, 3, 196610, 65546, 2, 196610, 65546, 1, 196610, 65546, 0, 196610, 65546, 65535, 196610, 65546, 65534, 196610, 65546, 65533, 196610, 65546, 65532, 196610, 65546, 65531, 196610, 65546, 65530, 196610, 65545, 65530, 196610, 65544, 65530, 196610, 65543, 65530, 196610, 65542, 65530, 196610, 65541, 65530, 196610, 65540, 65530, 196610, 65539, 65530, 196610, 65538, 65530, 196610, 65537, 65530, 196610, 65536, 65530, 196610, 131071, 65530, 196610, 131070, 65530, 196610, 131069, 65530, 196610, 131068, 65530, 196610, 131067, 65530, 196610, 131066, 65530, 196610, 131065, 65530, 196610, 131064, 65530, 196610, 131063, 65530, 196610, 131062, 65530, 196610, -10, 5, 196610, -9, 5, 196610, -8, 5, 196610, -7, 5, 196610, -6, 5, 196610, -5, 5, 196610, -4, 5, 196610, -3, 5, 196610, -2, 5, 196610, -1, 5, 196610, -65536, 5, 196610, -65535, 5, 196610, -65534, 5, 196610, -65533, 5, 196610, -65532, 5, 196610, -65531, 5, 196610, -65530, 5, 196610, -65529, 5, 196610, -65528, 5, 196610, -65527, 5, 196610, -11, 5, 196610, -11, 4, 196610, -11, 3, 196610, -11, 2, 196610, -11, 1, 196610, -11, 0, 196610, -11, 65535, 196610, -11, 65534, 196610, -11, 65533, 196610, -11, 65532, 196610, -11, 65531, 196610, -11, 65530, 196610, -10, 65530, 196610, -9, 65530, 196610, -8, 65530, 196610, -7, 65530, 196610, -6, 65530, 196610, -5, 65530, 196610, -4, 65530, 196610, -3, 65530, 196610, -2, 65530, 196610, -1, 65530, 196610, -65536, 65530, 196610, -65535, 65530, 196610, -65534, 65530, 196610, -65533, 65530, 196610, -65532, 65530, 196610, -65531, 65530, 196610, -65530, 65530, 196610, -65529, 65530, 196610, -65528, 65530, 196610, -65527, 65530, 196610, -65526, 65530, 196610, -65526, 65535, 196610, -65526, 65534, 196610, -65526, 65533, 196610, -65526, 65532, 196610, -65526, 65531, 196610, -65526, 0, 196610, -65526, 1, 196610, -65526, 2, 196610, -65526, 3, 196610, -65526, 4, 196610, -65526, 5, 196610, 0, 4, 196609, 65535, 4, 196609, 65534, 4, 196609, 65533, 4, 196609, 65532, 4, 196609, 1, 4, 196609, 65535, 65531, 196609, 65534, 65531, 196609, 65533, 65531, 196609, 65532, 65531, 196609, 0, 65531, 196609, 1, 65531, 196609, 8, 65535, 196609, 8, 0, 196609, 10, 1, 131074, 10, 0, 131074, 10, 65535, 131074, 9, 0, 131073, 9, 65535, 131073, 65526, 0, 131073, 65527, 0, 131073, 65526, 65535, 131073, 65527, 65535, 131073, 8, 1, 131073, 9, 1, 131073, 9, 65534, 131073, 8, 65534, 131073, 2, 65531, 131073, 3, 65531, 131073, 2, 4, 131073, 3, 4, 131073, 131077, 65530, 131074, 131076, 65530, 131074, 131075, 65530, 131074, 131074, 65530, 131074, 131073, 65530, 131074, 131072, 65530, 131074, 196607, 65530, 131074, 196606, 65530, 131074, 196605, 65530, 131074, 196604, 65530, 131074, 196599, 65530, 131074, 196598, 65530, 131074, 196597, 65530, 131074, 131078, 65530, 131074, 131079, 65530, 131074, 131080, 65530, 131074, 131081, 65530, 131074, 131082, 65530, 131074, 131082, 65531, 131074, 131082, 65532, 131074, 131082, 65533, 131074, 131082, 65534, 131074, 131082, 65535, 131074, 131082, 0, 131074, 131082, 1, 131074, 131082, 2, 131074, 131082, 3, 131074, 131082, 4, 131074, 131082, 5, 131074, 131081, 5, 131074, 131080, 5, 131074, 131079, 5, 131074, 131078, 5, 131074, 131077, 5, 131074, 131076, 5, 131074, 131075, 5, 131074, 131074, 5, 131074, 131073, 5, 131074, 131072, 5, 131074, 196607, 5, 131074, 196606, 5, 131074, 196605, 5, 131074, 196604, 5, 131074, 196603, 5, 131074, 196602, 5, 131074, 196601, 5, 131074, 196600, 5, 131074, 196599, 5, 131074, 196598, 5, 131074, 196597, 5, 131074, 196597, 4, 131074, 196597, 3, 131074, 196597, 2, 131074, 196597, 1, 131074, 196597, 0, 131074, 196597, 65535, 131074, 196597, 65534, 131074, 196597, 65533, 131074, 196597, 65532, 131074, 196603, 65530, 131074, 196602, 65530, 131074, 196601, 65530, 131074, 196600, 65530, 131074, 196597, 65531, 131074)
-}
-metadata/_editor_floor_ = Vector3(0, 0, 0)
-
 [node name="Camera3d" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.0871558, 0.996195, 0, -0.996195, 0.0871558, 0, 11, 1)
+transform = Transform3D(1, 0, 0, 0, 0.0871558, 0.996195, 0, -0.996195, 0.0871558, 0, 11, 0)
 fov = 80.0
 
 [node name="Player" parent="." instance=ExtResource("2_xv1ii")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.199849, 1, -1.16751)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0.005, 13, -5)
+
+[node name="LevelGeometry" type="Node3D" parent="."]
+
+[node name="Floor" type="Node3D" parent="LevelGeometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="LightGrayCube" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube2" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube3" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube4" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube5" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube6" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube7" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube8" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube9" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube10" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+skeleton = NodePath("../..")
+
+[node name="LightGrayCube11" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube12" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube13" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube14" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube15" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube16" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube17" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube18" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube19" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube20" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -5)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube21" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube22" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube23" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube24" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube25" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube26" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube27" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube28" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube29" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube30" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+skeleton = NodePath("../..")
+
+[node name="LightGrayCube31" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube32" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube33" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube34" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube35" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube36" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube37" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube38" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube39" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube40" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -6)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube41" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube42" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube43" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube44" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube45" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube46" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube47" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube48" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube49" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube50" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+skeleton = NodePath("../..")
+
+[node name="LightGrayCube51" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube52" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube53" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube54" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube55" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube56" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube57" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube58" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube59" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube60" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -4)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube61" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube62" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube63" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube64" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube65" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube66" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube67" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube68" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube69" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube70" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+skeleton = NodePath("../..")
+
+[node name="LightGrayCube71" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube72" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube73" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube74" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube75" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube76" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube77" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube78" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube79" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube80" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube81" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube82" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube83" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube84" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube85" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube86" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube87" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube88" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube89" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube90" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+skeleton = NodePath("../..")
+
+[node name="LightGrayCube91" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube92" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube93" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube94" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube95" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube96" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube97" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube98" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube99" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube100" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube101" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube102" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube103" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube104" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube105" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube106" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube107" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube108" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube109" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube110" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+skeleton = NodePath("../..")
+
+[node name="LightGrayCube111" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube112" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube113" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube114" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube115" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube116" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube117" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube118" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube119" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube120" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube121" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 0)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube122" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube123" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube124" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube125" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube126" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube127" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube128" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube129" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube130" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+skeleton = NodePath("../..")
+
+[node name="LightGrayCube131" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube132" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube133" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube134" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube135" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube136" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube137" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube138" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube139" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube140" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube141" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube142" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube143" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube144" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube145" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube146" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube147" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube148" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube149" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube150" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+skeleton = NodePath("../..")
+
+[node name="LightGrayCube151" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube152" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube153" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube154" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube155" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube156" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube157" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube158" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube159" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube160" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 1)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube161" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube162" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube163" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube164" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube165" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube166" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube167" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube168" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube169" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube170" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+skeleton = NodePath("../..")
+
+[node name="LightGrayCube171" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube172" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube173" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube174" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube175" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube176" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube177" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube178" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube179" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube180" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 2)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube181" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube182" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube183" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube184" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube185" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube186" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube187" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube188" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube189" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube190" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+skeleton = NodePath("../..")
+
+[node name="LightGrayCube191" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube192" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube193" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube194" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube195" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube196" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube197" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube198" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube199" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 3)
+skeleton = NodePath("../../..")
+
+[node name="LightGrayCube200" parent="LevelGeometry/Floor" instance=ExtResource("3_xoxby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 3)
+skeleton = NodePath("../../..")
+
+[node name="Walls" type="Node3D" parent="LevelGeometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -3)
+
+[node name="DarkGrayCube" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+
+[node name="DarkGrayCube23" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -4)
+
+[node name="DarkGrayCube24" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -4)
+
+[node name="DarkGrayCube25" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -4)
+
+[node name="DarkGrayCube26" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4)
+
+[node name="DarkGrayCube27" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -4)
+
+[node name="DarkGrayCube28" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -4)
+
+[node name="DarkGrayCube29" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -4)
+
+[node name="DarkGrayCube30" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -4)
+
+[node name="DarkGrayCube31" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -4)
+
+[node name="DarkGrayCube32" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -4)
+
+[node name="DarkGrayCube33" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -4)
+
+[node name="DarkGrayCube34" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -3)
+
+[node name="DarkGrayCube35" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -2)
+
+[node name="DarkGrayCube36" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -1)
+
+[node name="DarkGrayCube37" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 0)
+
+[node name="DarkGrayCube38" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 1)
+
+[node name="DarkGrayCube39" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 2)
+
+[node name="DarkGrayCube40" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 3)
+
+[node name="DarkGrayCube41" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 4)
+
+[node name="DarkGrayCube42" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 5)
+
+[node name="DarkGrayCube43" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 6)
+
+[node name="DarkGrayCube44" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 7)
+
+[node name="DarkGrayCube45" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 7)
+
+[node name="DarkGrayCube46" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 7)
+
+[node name="DarkGrayCube47" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 7)
+
+[node name="DarkGrayCube48" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 7)
+
+[node name="DarkGrayCube49" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 7)
+
+[node name="DarkGrayCube50" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 7)
+
+[node name="DarkGrayCube51" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 7)
+
+[node name="DarkGrayCube52" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 7)
+
+[node name="DarkGrayCube53" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 7)
+
+[node name="DarkGrayCube54" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 7)
+
+[node name="DarkGrayCube55" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
+
+[node name="DarkGrayCube56" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 7)
+
+[node name="DarkGrayCube57" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 7)
+
+[node name="DarkGrayCube58" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 7)
+
+[node name="DarkGrayCube59" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 7)
+
+[node name="DarkGrayCube60" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 7)
+
+[node name="DarkGrayCube61" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 7)
+
+[node name="DarkGrayCube62" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 7)
+
+[node name="DarkGrayCube63" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 7)
+
+[node name="DarkGrayCube64" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 7)
+
+[node name="DarkGrayCube2" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -4)
+
+[node name="DarkGrayCube3" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -4)
+
+[node name="DarkGrayCube4" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -4)
+
+[node name="DarkGrayCube5" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4)
+
+[node name="DarkGrayCube6" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -4)
+
+[node name="DarkGrayCube7" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -4)
+
+[node name="DarkGrayCube8" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -4)
+
+[node name="DarkGrayCube9" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -4)
+
+[node name="DarkGrayCube10" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -4)
+
+[node name="DarkGrayCube11" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -4)
+
+[node name="DarkGrayCube12" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -3)
+
+[node name="DarkGrayCube13" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -2)
+
+[node name="DarkGrayCube14" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -1)
+
+[node name="DarkGrayCube15" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
+
+[node name="DarkGrayCube16" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 1)
+
+[node name="DarkGrayCube17" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 2)
+
+[node name="DarkGrayCube18" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 3)
+
+[node name="DarkGrayCube19" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 4)
+
+[node name="DarkGrayCube20" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 5)
+
+[node name="DarkGrayCube21" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 6)
+
+[node name="DarkGrayCube22" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 7)
+
+[node name="DarkGrayCube65" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -4)
+
+[node name="DarkGrayCube66" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -4)
+
+[node name="DarkGrayCube67" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -4)
+
+[node name="DarkGrayCube68" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, -4)
+
+[node name="DarkGrayCube69" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, -4)
+
+[node name="DarkGrayCube70" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, -4)
+
+[node name="DarkGrayCube71" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -4)
+
+[node name="DarkGrayCube72" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, -4)
+
+[node name="DarkGrayCube73" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, -4)
+
+[node name="DarkGrayCube74" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1, -4)
+
+[node name="DarkGrayCube75" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, -4)
+
+[node name="DarkGrayCube76" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, -4)
+
+[node name="DarkGrayCube77" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, -3)
+
+[node name="DarkGrayCube78" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, -2)
+
+[node name="DarkGrayCube79" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, -1)
+
+[node name="DarkGrayCube80" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 0)
+
+[node name="DarkGrayCube81" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 1)
+
+[node name="DarkGrayCube82" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 2)
+
+[node name="DarkGrayCube83" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 3)
+
+[node name="DarkGrayCube84" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 4)
+
+[node name="DarkGrayCube85" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 5)
+
+[node name="DarkGrayCube86" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 6)
+
+[node name="DarkGrayCube87" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 7)
+
+[node name="DarkGrayCube88" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 7)
+
+[node name="DarkGrayCube89" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1, 7)
+
+[node name="DarkGrayCube90" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, 7)
+
+[node name="DarkGrayCube91" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, 7)
+
+[node name="DarkGrayCube92" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 7)
+
+[node name="DarkGrayCube93" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 7)
+
+[node name="DarkGrayCube94" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 7)
+
+[node name="DarkGrayCube95" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 7)
+
+[node name="DarkGrayCube96" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 7)
+
+[node name="DarkGrayCube97" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 7)
+
+[node name="DarkGrayCube98" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 7)
+
+[node name="DarkGrayCube99" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 7)
+
+[node name="DarkGrayCube100" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 7)
+
+[node name="DarkGrayCube101" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, 7)
+
+[node name="DarkGrayCube102" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 7)
+
+[node name="DarkGrayCube103" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, 7)
+
+[node name="DarkGrayCube104" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, 7)
+
+[node name="DarkGrayCube105" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1, 7)
+
+[node name="DarkGrayCube106" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, 7)
+
+[node name="DarkGrayCube107" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 1, 7)
+
+[node name="DarkGrayCube108" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -4)
+
+[node name="DarkGrayCube109" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -4)
+
+[node name="DarkGrayCube110" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, -4)
+
+[node name="DarkGrayCube111" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -4)
+
+[node name="DarkGrayCube112" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, -4)
+
+[node name="DarkGrayCube113" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, -4)
+
+[node name="DarkGrayCube114" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1, -4)
+
+[node name="DarkGrayCube115" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, -4)
+
+[node name="DarkGrayCube116" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 1, -4)
+
+[node name="DarkGrayCube117" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, -4)
+
+[node name="DarkGrayCube118" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, -3)
+
+[node name="DarkGrayCube119" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, -2)
+
+[node name="DarkGrayCube120" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, -1)
+
+[node name="DarkGrayCube121" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, 0)
+
+[node name="DarkGrayCube122" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, 1)
+
+[node name="DarkGrayCube123" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, 2)
+
+[node name="DarkGrayCube124" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, 3)
+
+[node name="DarkGrayCube125" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, 4)
+
+[node name="DarkGrayCube126" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, 5)
+
+[node name="DarkGrayCube127" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, 6)
+
+[node name="DarkGrayCube128" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, 7)
+
+[node name="DarkGrayCube129" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -4)
+
+[node name="DarkGrayCube130" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, -4)
+
+[node name="DarkGrayCube131" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, -4)
+
+[node name="DarkGrayCube132" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, -4)
+
+[node name="DarkGrayCube133" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, -4)
+
+[node name="DarkGrayCube134" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, -4)
+
+[node name="DarkGrayCube135" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2, -4)
+
+[node name="DarkGrayCube136" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2, -4)
+
+[node name="DarkGrayCube137" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2, -4)
+
+[node name="DarkGrayCube138" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2, -4)
+
+[node name="DarkGrayCube139" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2, -4)
+
+[node name="DarkGrayCube140" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2, -4)
+
+[node name="DarkGrayCube141" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2, -3)
+
+[node name="DarkGrayCube142" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2, -2)
+
+[node name="DarkGrayCube143" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2, -1)
+
+[node name="DarkGrayCube144" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2, 0)
+
+[node name="DarkGrayCube145" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2, 1)
+
+[node name="DarkGrayCube146" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2, 2)
+
+[node name="DarkGrayCube147" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2, 3)
+
+[node name="DarkGrayCube148" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2, 4)
+
+[node name="DarkGrayCube149" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2, 5)
+
+[node name="DarkGrayCube150" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2, 6)
+
+[node name="DarkGrayCube151" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2, 7)
+
+[node name="DarkGrayCube152" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2, 7)
+
+[node name="DarkGrayCube153" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2, 7)
+
+[node name="DarkGrayCube154" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2, 7)
+
+[node name="DarkGrayCube155" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2, 7)
+
+[node name="DarkGrayCube156" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2, 7)
+
+[node name="DarkGrayCube157" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, 7)
+
+[node name="DarkGrayCube158" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 7)
+
+[node name="DarkGrayCube159" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, 7)
+
+[node name="DarkGrayCube160" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 7)
+
+[node name="DarkGrayCube161" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 7)
+
+[node name="DarkGrayCube162" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 7)
+
+[node name="DarkGrayCube163" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 7)
+
+[node name="DarkGrayCube164" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 7)
+
+[node name="DarkGrayCube165" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2, 7)
+
+[node name="DarkGrayCube166" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, 7)
+
+[node name="DarkGrayCube167" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, 7)
+
+[node name="DarkGrayCube168" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, 7)
+
+[node name="DarkGrayCube169" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2, 7)
+
+[node name="DarkGrayCube170" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, 7)
+
+[node name="DarkGrayCube171" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2, 7)
+
+[node name="DarkGrayCube172" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, -4)
+
+[node name="DarkGrayCube173" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -4)
+
+[node name="DarkGrayCube174" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2, -4)
+
+[node name="DarkGrayCube175" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, -4)
+
+[node name="DarkGrayCube176" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, -4)
+
+[node name="DarkGrayCube177" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, -4)
+
+[node name="DarkGrayCube178" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2, -4)
+
+[node name="DarkGrayCube179" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, -4)
+
+[node name="DarkGrayCube180" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2, -4)
+
+[node name="DarkGrayCube181" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2, -4)
+
+[node name="DarkGrayCube182" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2, -3)
+
+[node name="DarkGrayCube183" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2, -2)
+
+[node name="DarkGrayCube184" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2, -1)
+
+[node name="DarkGrayCube185" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2, 0)
+
+[node name="DarkGrayCube186" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2, 1)
+
+[node name="DarkGrayCube187" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2, 2)
+
+[node name="DarkGrayCube188" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2, 3)
+
+[node name="DarkGrayCube189" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2, 4)
+
+[node name="DarkGrayCube190" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2, 5)
+
+[node name="DarkGrayCube191" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2, 6)
+
+[node name="DarkGrayCube192" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2, 7)
+
+[node name="Counters" type="Node3D" parent="LevelGeometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -4)
+
+[node name="MedGrayCube" parent="LevelGeometry/Counters" instance=ExtResource("4_gnr4w")]
+transform = Transform3D(0.999944, 0, -0.0106114, 0, 1, 0, 0.0106114, 0, 0.999944, 0, 0, -2)
+
+[node name="MedGrayCube2" parent="LevelGeometry/Counters" instance=ExtResource("4_gnr4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2)
+
+[node name="MedGrayCube3" parent="LevelGeometry/Counters" instance=ExtResource("4_gnr4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
+
+[node name="MedGrayCube18" parent="LevelGeometry/Counters" instance=ExtResource("4_gnr4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -2)
+
+[node name="MedGrayCube4" parent="LevelGeometry/Counters" instance=ExtResource("4_gnr4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2)
+
+[node name="MedGrayCube5" parent="LevelGeometry/Counters" instance=ExtResource("4_gnr4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
+
+[node name="MedGrayCube6" parent="LevelGeometry/Counters" instance=ExtResource("4_gnr4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -2)
+
+[node name="MedGrayCube7" parent="LevelGeometry/Counters" instance=ExtResource("4_gnr4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 3)
+
+[node name="MedGrayCube9" parent="LevelGeometry/Counters" instance=ExtResource("4_gnr4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
+
+[node name="MedGrayCube12" parent="LevelGeometry/Counters" instance=ExtResource("4_gnr4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 7)
+
+[node name="MedGrayCube13" parent="LevelGeometry/Counters" instance=ExtResource("4_gnr4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 7)
+
+[node name="MedGrayCube14" parent="LevelGeometry/Counters" instance=ExtResource("4_gnr4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 7)
+
+[node name="MedGrayCube10" parent="LevelGeometry/Counters" instance=ExtResource("4_gnr4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 7)
+
+[node name="MedGrayCube11" parent="LevelGeometry/Counters" instance=ExtResource("4_gnr4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 7)
+
+[node name="MedGrayCube15" parent="LevelGeometry/Counters" instance=ExtResource("4_gnr4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 4)
+
+[node name="MedGrayCube16" parent="LevelGeometry/Counters" instance=ExtResource("4_gnr4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 3)
+
+[node name="MedGrayCube17" parent="LevelGeometry/Counters" instance=ExtResource("4_gnr4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 2)
+
+[node name="MedGrayCube8" parent="LevelGeometry/Counters" instance=ExtResource("4_gnr4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 2)
+
+[node name="Interactables" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="GreenCube" parent="Interactables" instance=ExtResource("5_3e2fo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -6)
+
+[node name="GreenCube2" parent="Interactables" instance=ExtResource("5_3e2fo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -6)
+
+[node name="MeshInstance" parent="Interactables/GreenCube2" index="1"]
+mesh = SubResource("BoxMesh_36fp7")
+
+[editable path="Interactables/GreenCube2"]

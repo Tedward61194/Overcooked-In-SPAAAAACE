@@ -8,6 +8,16 @@
 
 config_version=5
 
+_global_script_classes=[{
+"base": "MeshInstance3D",
+"class": &"Targetable",
+"language": &"GDScript",
+"path": "res://assets/scripts/Targatable.gd"
+}]
+_global_script_class_icons={
+"Targetable": ""
+}
+
 [application]
 
 config/name="Overcooked In Spaaaaace"
