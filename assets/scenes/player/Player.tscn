@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqn2qf88ciqpw"]
+[gd_scene load_steps=7 format=3 uid="uid://bdspl4jw5vr0f"]
 
 [ext_resource type="Script" path="res://assets/scripts/Player.gd" id="1_6mg3y"]
 [ext_resource type="Script" path="res://assets/scenes/player/PlayerReachCast.gd" id="2_fjs5p"]
@@ -35,11 +35,16 @@ layers = 2
 mesh = SubResource("BoxMesh_kps66")
 skeleton = NodePath("../../../..")
 
-[node name="Reach" type="RayCast3D" parent="Pivot/MeshInstance3d"]
+[node name="ReachHands" type="RayCast3D" parent="Pivot/MeshInstance3d"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 target_position = Vector3(0, 0, -1.5)
 collision_mask = 5
 script = ExtResource("2_fjs5p")
+
+[node name="ReachFeet" type="RayCast3D" parent="Pivot/MeshInstance3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+target_position = Vector3(0, 0, -1.5)
+collision_mask = 5
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_mhbp5")
