@@ -1,32 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://davmdwsjk838n"]
+[gd_scene load_steps=6 format=3 uid="uid://davmdwsjk838n"]
 
 [ext_resource type="PackedScene" uid="uid://cqn2qf88ciqpw" path="res://assets/scenes/player/Player.tscn" id="2_xv1ii"]
 [ext_resource type="PackedScene" uid="uid://daevix1m2wo3h" path="res://assets/scenes/prototype_blocks/DarkGrayCube.tscn" id="3_3sh44"]
 [ext_resource type="PackedScene" uid="uid://bseo0pb030afj" path="res://assets/scenes/prototype_blocks/LightGrayCube.tscn" id="3_xoxby"]
 [ext_resource type="PackedScene" uid="uid://cvnebub80be8t" path="res://assets/scenes/prototype_blocks/MedGrayCube.tscn" id="4_gnr4w"]
 [ext_resource type="PackedScene" uid="uid://cnjymyv1btuqo" path="res://assets/scenes/prototype_blocks/GreenCube.tscn" id="5_3e2fo"]
-
-[sub_resource type="Shader" id="Shader_l6rhr"]
-code = "shader_type spatial;
-uniform float strength;
-
-void fragment() {
-	ALBEDO = vec3(0.88, 1.0, 0.0);
-	ALPHA = strength;
-}
-"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mrfjw"]
-render_priority = 0
-shader = SubResource("Shader_l6rhr")
-shader_parameter/strength = null
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fa05i"]
-next_pass = SubResource("ShaderMaterial_mrfjw")
-albedo_color = Color(0, 0.48, 0.12, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_36fp7"]
-material = SubResource("StandardMaterial3D_fa05i")
 
 [node name="Node3d" type="Node3D"]
 
@@ -1480,15 +1458,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 2)
 
 [node name="Interactables" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="GreenCube" parent="Interactables" instance=ExtResource("5_3e2fo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -6)
-
-[node name="GreenCube2" parent="Interactables" instance=ExtResource("5_3e2fo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -6)
-
-[node name="MeshInstance" parent="Interactables/GreenCube2" index="1"]
-mesh = SubResource("BoxMesh_36fp7")
-
-[editable path="Interactables/GreenCube2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)

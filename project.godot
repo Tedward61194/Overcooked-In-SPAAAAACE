@@ -10,12 +10,12 @@ config_version=5
 
 _global_script_classes=[{
 "base": "MeshInstance3D",
-"class": &"Targetable",
+"class": &"Highlightable",
 "language": &"GDScript",
-"path": "res://assets/scripts/Targatable.gd"
+"path": "res://assets/scripts/Highlightable.gd"
 }]
 _global_script_class_icons={
-"Targetable": ""
+"Highlightable": ""
 }
 
 [application]

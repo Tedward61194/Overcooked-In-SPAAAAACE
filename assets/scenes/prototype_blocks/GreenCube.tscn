@@ -1,30 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://cnjymyv1btuqo"]
+[gd_scene load_steps=6 format=3 uid="uid://cnjymyv1btuqo"]
 
 [ext_resource type="Script" path="res://assets/scripts/GreenCube.gd" id="1_flya1"]
+[ext_resource type="Script" path="res://assets/scripts/Highlightable.gd" id="2_4c7fy"]
+[ext_resource type="Material" uid="uid://ceg46m6rb006y" path="res://assets/materials/base/Green.tres" id="2_6knrd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lvmlj"]
 
-[sub_resource type="Shader" id="Shader_mteyn"]
-code = "shader_type spatial;
-uniform float strength;
-
-void fragment() {
-	ALBEDO = vec3(0.88, 1.0, 0.0);
-	ALPHA = strength;
-}
-"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kq81i"]
-render_priority = 0
-shader = SubResource("Shader_mteyn")
-shader_parameter/strength = null
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_14bij"]
-next_pass = SubResource("ShaderMaterial_kq81i")
-albedo_color = Color(0, 0.48, 0.12, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_legvd"]
-material = SubResource("StandardMaterial3D_14bij")
+[sub_resource type="BoxMesh" id="BoxMesh_tal8h"]
+material = ExtResource("2_6knrd")
 
 [node name="GreenCube" type="StaticBody3D"]
 collision_layer = 5
@@ -34,5 +17,6 @@ script = ExtResource("1_flya1")
 [node name="CollisionShape3d" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_lvmlj")
 
-[node name="MeshInstance" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_legvd")
+[node name="Highlightable" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_tal8h")
+script = ExtResource("2_4c7fy")
