@@ -22,26 +22,29 @@ script = ExtResource("1_6mg3y")
 
 [node name="Pivot" type="Node3D" parent="."]
 
-[node name="MeshInstance3d" type="MeshInstance3D" parent="Pivot"]
+[node name="BodyMesh" type="MeshInstance3D" parent="Pivot"]
 layers = 2
 mesh = SubResource("CapsuleMesh_jv1tx")
 skeleton = NodePath("../..")
 
-[node name="Hand" type="Node3D" parent="Pivot/MeshInstance3d"]
+[node name="Hand" type="Node3D" parent="Pivot/BodyMesh"]
 
-[node name="MeshInstance3d2" type="MeshInstance3D" parent="Pivot/MeshInstance3d/Hand"]
+[node name="HandMesh" type="MeshInstance3D" parent="Pivot/BodyMesh/Hand"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.1, -0.45)
 layers = 2
 mesh = SubResource("BoxMesh_kps66")
 skeleton = NodePath("../../../..")
 
-[node name="ReachHands" type="RayCast3D" parent="Pivot/MeshInstance3d"]
+[node name="PickUpPosition" type="Node3D" parent="Pivot/BodyMesh/Hand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.1)
+
+[node name="ReachHands" type="RayCast3D" parent="Pivot/BodyMesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 target_position = Vector3(0, 0, -1.5)
 collision_mask = 5
 script = ExtResource("2_fjs5p")
 
-[node name="ReachFeet" type="RayCast3D" parent="Pivot/MeshInstance3d"]
+[node name="ReachFeet" type="RayCast3D" parent="Pivot/BodyMesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 target_position = Vector3(0, 0, -1.5)
 collision_mask = 5

@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cnjymyv1btuqo"]
 
-[ext_resource type="Script" path="res://assets/scripts/GreenCube.gd" id="1_flya1"]
 [ext_resource type="Script" path="res://assets/scripts/Highlightable.gd" id="2_4c7fy"]
 [ext_resource type="Material" uid="uid://ceg46m6rb006y" path="res://assets/materials/base/Green.tres" id="2_6knrd"]
+[ext_resource type="Script" path="res://assets/scripts/Pickupable.gd" id="3_0k360"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lvmlj"]
 
@@ -12,7 +12,6 @@ material = ExtResource("2_6knrd")
 [node name="GreenCube" type="RigidBody3D"]
 collision_layer = 5
 collision_mask = 5
-script = ExtResource("1_flya1")
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_lvmlj")
@@ -22,3 +21,4 @@ mesh = SubResource("BoxMesh_tal8h")
 script = ExtResource("2_4c7fy")
 
 [node name="Pickupable" type="Node3D" parent="."]
+script = ExtResource("3_0k360")
