@@ -2,17 +2,13 @@ extends Node3D
 
 # refs
 @onready var root : RigidBody3D = self.get_parent()
-var pick_up_position_node : Node3D
-
-# logic
-var picked_up = false
-
-
-func _physics_process(delta):
-	if picked_up and pick_up_position_node:
-		root.position = pick_up_position_node.global_position
+@export var pickup_scene : PackedScene
 
 
 func pickup(handPosition : Node3D):
-	picked_up = true
-	pick_up_position_node = handPosition
+	if pickup_scene:
+		var inatance = pickup_scene.instantiate()
+		handPosition.add_child(inatance)
+		inatance.set_global_position(handPosition.get_global_position())
+		root.queue_free()
+

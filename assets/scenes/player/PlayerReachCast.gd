@@ -5,6 +5,7 @@ extends RayCast3D
 
 # logic
 var looking_at = null
+var can_pickup = true;
 
 
 func _process(delta):
@@ -20,5 +21,6 @@ func _process(delta):
 
 func _input(event):
 	if Input.is_action_just_pressed("PickUp"):
-		if looking_at and looking_at.has_node("Pickupable"):
+		if can_pickup and looking_at and looking_at.has_node("Pickupable"):
 			looking_at.get_node("Pickupable").pickup(pickup_position)
+			can_pickup = false

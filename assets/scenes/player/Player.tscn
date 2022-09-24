@@ -36,7 +36,7 @@ mesh = SubResource("BoxMesh_kps66")
 skeleton = NodePath("../../../..")
 
 [node name="PickUpPosition" type="Node3D" parent="Pivot/BodyMesh/Hand"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1.1)
 
 [node name="ReachHands" type="RayCast3D" parent="Pivot/BodyMesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
