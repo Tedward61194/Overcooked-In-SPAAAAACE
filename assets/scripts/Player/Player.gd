@@ -6,6 +6,9 @@ const SPEED := 5.0
 # config
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+# logic
+var obj_holding = null
+
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

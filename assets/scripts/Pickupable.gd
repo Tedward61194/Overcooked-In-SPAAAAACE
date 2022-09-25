@@ -1,7 +1,8 @@
-extends Node3D
+class_name Pickupable extends Node3D
 
 # refs
 @onready var root : RigidBody3D = self.get_parent()
+@export var id : int
 @export var pickup_scene : PackedScene
 
 

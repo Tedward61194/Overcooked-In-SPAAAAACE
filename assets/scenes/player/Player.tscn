@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdspl4jw5vr0f"]
+[gd_scene load_steps=8 format=3 uid="uid://b7i61x4id5xuj"]
 
-[ext_resource type="Script" path="res://assets/scripts/Player.gd" id="1_6mg3y"]
-[ext_resource type="Script" path="res://assets/scenes/player/PlayerReachCast.gd" id="2_fjs5p"]
+[ext_resource type="Script" path="res://assets/scripts/Player/Player.gd" id="1_qjp16"]
+[ext_resource type="Script" path="res://assets/scripts/Player/PlayerHandsReach.gd" id="2_v3w00"]
+[ext_resource type="Script" path="res://assets/scripts/Player/PlayerFeetReach.gd" id="3_w1lj0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4j4k5"]
 albedo_color = Color(0.360398, 0.637741, 0.984528, 1)
@@ -18,7 +19,7 @@ size = Vector3(0.15, 0.15, 0.8)
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
 collision_mask = 5
-script = ExtResource("1_6mg3y")
+script = ExtResource("1_qjp16")
 
 [node name="Pivot" type="Node3D" parent="."]
 
@@ -38,16 +39,17 @@ skeleton = NodePath("../../../..")
 [node name="PickUpPosition" type="Node3D" parent="Pivot/BodyMesh/Hand"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1.1)
 
-[node name="ReachHands" type="RayCast3D" parent="Pivot/BodyMesh"]
+[node name="HandsReach" type="RayCast3D" parent="Pivot/BodyMesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 target_position = Vector3(0, 0, -1.5)
 collision_mask = 5
-script = ExtResource("2_fjs5p")
+script = ExtResource("2_v3w00")
 
-[node name="ReachFeet" type="RayCast3D" parent="Pivot/BodyMesh"]
+[node name="FeetReach" type="RayCast3D" parent="Pivot/BodyMesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 target_position = Vector3(0, 0, -1.5)
 collision_mask = 5
+script = ExtResource("3_w1lj0")
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_mhbp5")

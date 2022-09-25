@@ -13,9 +13,21 @@ _global_script_classes=[{
 "class": &"Highlightable",
 "language": &"GDScript",
 "path": "res://assets/scripts/Highlightable.gd"
+}, {
+"base": "Node3D",
+"class": &"Pickupable",
+"language": &"GDScript",
+"path": "res://assets/scripts/Pickupable.gd"
+}, {
+"base": "Node3D",
+"class": &"PlacementSlot",
+"language": &"GDScript",
+"path": "res://assets/scripts/PlacementSlot.gd"
 }]
 _global_script_class_icons={
-"Highlightable": ""
+"Highlightable": "",
+"Pickupable": "",
+"PlacementSlot": ""
 }
 
 [application]
