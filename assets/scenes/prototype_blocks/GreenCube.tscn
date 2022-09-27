@@ -23,4 +23,5 @@ script = ExtResource("2_4c7fy")
 
 [node name="Pickupable" type="Node3D" parent="."]
 script = ExtResource("3_0k360")
+id = 1
 pickup_scene = ExtResource("4_pl8gl")

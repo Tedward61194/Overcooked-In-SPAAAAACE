@@ -1,8 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7i61x4id5xuj"]
+[gd_scene load_steps=6 format=3 uid="uid://b7i61x4id5xuj"]
 
 [ext_resource type="Script" path="res://assets/scripts/Player/Player.gd" id="1_qjp16"]
-[ext_resource type="Script" path="res://assets/scripts/Player/PlayerHandsReach.gd" id="2_v3w00"]
-[ext_resource type="Script" path="res://assets/scripts/Player/PlayerFeetReach.gd" id="3_w1lj0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4j4k5"]
 albedo_color = Color(0.360398, 0.637741, 0.984528, 1)
@@ -43,13 +41,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1.1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 target_position = Vector3(0, 0, -1.5)
 collision_mask = 5
-script = ExtResource("2_v3w00")
 
 [node name="FeetReach" type="RayCast3D" parent="Pivot/BodyMesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 target_position = Vector3(0, 0, -1.5)
 collision_mask = 5
-script = ExtResource("3_w1lj0")
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_mhbp5")
