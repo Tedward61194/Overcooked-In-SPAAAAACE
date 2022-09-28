@@ -14,10 +14,20 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://assets/scripts/Highlightable.gd"
 }, {
+"base": "RefCounted",
+"class": &"PickupDB",
+"language": &"GDScript",
+"path": "res://assets/scripts/DB/PickupDB.gd"
+}, {
 "base": "Node3D",
 "class": &"Pickupable",
 "language": &"GDScript",
 "path": "res://assets/scripts/Pickupable.gd"
+}, {
+"base": "RefCounted",
+"class": &"PickupableData",
+"language": &"GDScript",
+"path": "res://assets/scripts/DB/PickupableData.gd"
 }, {
 "base": "Node3D",
 "class": &"PlacementSlot",
@@ -26,7 +36,9 @@ _global_script_classes=[{
 }]
 _global_script_class_icons={
 "Highlightable": "",
+"PickupDB": "",
 "Pickupable": "",
+"PickupableData": "",
 "PlacementSlot": ""
 }
 
@@ -40,6 +52,7 @@ config/icon="res://assets/images/icon.svg"
 [autoload]
 
 Events="*res://assets/scripts/Events.gd"
+DB="*res://assets/scripts/DB/DB.gd"
 
 [input]
 

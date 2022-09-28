@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cnjymyv1btuqo"]
+[gd_scene load_steps=6 format=3 uid="uid://ddg28ijxlx1l0"]
 
 [ext_resource type="Script" path="res://assets/scripts/Highlightable.gd" id="2_4c7fy"]
 [ext_resource type="Material" uid="uid://ceg46m6rb006y" path="res://assets/materials/base/Green.tres" id="2_6knrd"]
 [ext_resource type="Script" path="res://assets/scripts/Pickupable.gd" id="3_0k360"]
-[ext_resource type="PackedScene" uid="uid://chf1s42gpdv5b" path="res://assets/scenes/pickedups/GreenCube_Pickedup.tscn" id="4_pl8gl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lvmlj"]
 
@@ -23,5 +22,3 @@ script = ExtResource("2_4c7fy")
 
 [node name="Pickupable" type="Node3D" parent="."]
 script = ExtResource("3_0k360")
-id = 1
-pickup_scene = ExtResource("4_pl8gl")
