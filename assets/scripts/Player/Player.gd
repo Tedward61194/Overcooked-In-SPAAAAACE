@@ -65,7 +65,7 @@ func check_hand_reach_ray():
 	if col != hand_looking_at:
 		if col and col.has_node("Highlightable"):
 			col.get_node("Highlightable").targeted = true
-		if hand_looking_at and hand_looking_at.has_node("Highlightable"):
+		if hand_looking_at != null and hand_looking_at.has_node("Highlightable"):
 			hand_looking_at.get_node("Highlightable").targeted = false
 		hand_looking_at = col
 
@@ -76,7 +76,7 @@ func pick_up_put_down():
 			obj_in_hands = hand_looking_at.get_node("Pickupable").pickup(pick_up_position)
 	else: # Try put down
 		var col = feet_reach_ray.get_collider()
-		if col.has_node("PlacementSlot"):
+		if col != null and col.has_node("PlacementSlot"):
 			var put_down = col.get_node("PlacementSlot").try_put_down(obj_in_hands)
 			if put_down:
 				obj_in_hands = -1

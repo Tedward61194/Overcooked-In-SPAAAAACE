@@ -16,9 +16,9 @@ func _ready():
 
 func pickup(handPosition : Node3D) -> int:
 	if pick_up_scene:
-		var inatance = pick_up_scene.instantiate()
-		handPosition.add_child(inatance)
-		inatance.set_global_position(handPosition.get_global_position())
+		var instance = pick_up_scene.instantiate()
+		handPosition.add_child(instance)
+		instance.set_global_position(handPosition.get_global_position())
 		root.queue_free()
 		return id
 	push_error("Failed to get pick_up_scene")

@@ -9,4 +9,3 @@ func _init(_pickup_enum : int, _pick_up_scene : PackedScene, _put_down_scene : P
 	pickup_enum = _pickup_enum
 	pick_up_scene = _pick_up_scene
 	put_down_scene = _put_down_scene
-	
