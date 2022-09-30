@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://davmdwsjk838n"]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="PackedScene" uid="uid://b7i61x4id5xuj" path="res://assets/scenes/player/Player.tscn" id="2_xv1ii"]
-[ext_resource type="PackedScene" uid="uid://daevix1m2wo3h" path="res://assets/scenes/prototype_blocks/DarkGrayCube.tscn" id="3_3sh44"]
-[ext_resource type="PackedScene" uid="uid://bseo0pb030afj" path="res://assets/scenes/prototype_blocks/LightGrayCube.tscn" id="3_xoxby"]
-[ext_resource type="PackedScene" uid="uid://cvnebub80be8t" path="res://assets/scenes/prototype_blocks/MedGrayCube.tscn" id="4_gnr4w"]
-[ext_resource type="PackedScene" uid="uid://cnjymyv1btuqo" path="res://assets/scenes/prototype_blocks/GreenCube.tscn" id="5_3e2fo"]
+[ext_resource type="PackedScene" uid="uid://daevix1m2wo3h" path="res://assets/scenes/prototype_blocks/GreyCubes/DarkGrayCube.tscn" id="3_3sh44"]
+[ext_resource type="PackedScene" uid="uid://bseo0pb030afj" path="res://assets/scenes/prototype_blocks/GreyCubes/LightGrayCube.tscn" id="3_xoxby"]
+[ext_resource type="PackedScene" path="res://assets/scenes/prototype_blocks/GreyCubes/MedGrayCube.tscn" id="4_gnr4w"]
+[ext_resource type="PackedScene" uid="uid://1787vp03h331" path="res://assets/scenes/prototype_blocks/GreenCube.tscn" id="5_3e2fo"]
 
 [node name="Node3d" type="Node3D"]
 

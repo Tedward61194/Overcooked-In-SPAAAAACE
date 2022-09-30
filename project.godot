@@ -12,7 +12,7 @@ _global_script_classes=[{
 "base": "MeshInstance3D",
 "class": &"Highlightable",
 "language": &"GDScript",
-"path": "res://assets/scripts/Highlightable.gd"
+"path": "res://assets/scripts/Components/Highlightable.gd"
 }, {
 "base": "RefCounted",
 "class": &"PickupDB",
@@ -22,7 +22,7 @@ _global_script_classes=[{
 "base": "Node3D",
 "class": &"Pickupable",
 "language": &"GDScript",
-"path": "res://assets/scripts/Pickupable.gd"
+"path": "res://assets/scripts/Components/Pickupable.gd"
 }, {
 "base": "RefCounted",
 "class": &"PickupableData",
@@ -32,7 +32,7 @@ _global_script_classes=[{
 "base": "Node3D",
 "class": &"PlacementSlot",
 "language": &"GDScript",
-"path": "res://assets/scripts/PlacementSlot.gd"
+"path": "res://assets/scripts/Components/PlacementSlot.gd"
 }]
 _global_script_class_icons={
 "Highlightable": "",

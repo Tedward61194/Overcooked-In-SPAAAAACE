@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvnebub80be8t"]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="Material" uid="uid://bsnvdt55pymtn" path="res://assets/materials/base/MedGray.tres" id="1_csi5h"]
-[ext_resource type="Script" path="res://assets/scripts/PlacementSlot.gd" id="2_of104"]
+[ext_resource type="Script" path="res://assets/scripts/Components/PlacementSlot.gd" id="2_of104"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lvmlj"]
 

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cl7c8j18tyc84"]
+
+[ext_resource type="PackedScene" uid="uid://bjbiskub81jit" path="res://assets/scenes/components/Progress.tscn" id="1_m3us8"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6vast"]
+viewport_path = NodePath("SubViewport")
+
+[node name="ProgressBar3D" type="Node3D"]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(300, 30)
+render_target_update_mode = 4
+
+[node name="Progress" parent="SubViewport" instance=ExtResource("1_m3us8")]
+
+[node name="Sprite3d" type="Sprite3D" parent="."]
+billboard = 1
+texture = SubResource("ViewportTexture_6vast")

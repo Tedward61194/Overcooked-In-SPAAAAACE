@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddg28ijxlx1l0"]
+[gd_scene load_steps=7 format=3 uid="uid://1787vp03h331"]
 
-[ext_resource type="Script" path="res://assets/scripts/Highlightable.gd" id="2_4c7fy"]
+[ext_resource type="Script" path="res://assets/scripts/Components/Highlightable.gd" id="2_4c7fy"]
 [ext_resource type="Material" uid="uid://ceg46m6rb006y" path="res://assets/materials/base/Green.tres" id="2_6knrd"]
-[ext_resource type="Script" path="res://assets/scripts/Pickupable.gd" id="3_0k360"]
+[ext_resource type="Script" path="res://assets/scripts/Components/Pickupable.gd" id="3_0k360"]
+[ext_resource type="PackedScene" uid="uid://cl7c8j18tyc84" path="res://assets/scenes/components/ProgressBar3D.tscn" id="4_ksbv5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lvmlj"]
 
@@ -22,3 +23,6 @@ script = ExtResource("2_4c7fy")
 
 [node name="Pickupable" type="Node3D" parent="."]
 script = ExtResource("3_0k360")
+
+[node name="ProgressBar3D" parent="." instance=ExtResource("4_ksbv5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
