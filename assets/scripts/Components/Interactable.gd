@@ -9,8 +9,19 @@ var is_interacting = false:
 		is_interacting = val
 		prog_bar.is_interacting = val
 
+
+func _ready():
+	prog_bar.connect("progress_finished", _on_progress_finished)
+
+
 func start_interacting():
-	is_interacting = true
+	if !is_interacting:
+		is_interacting = true
 
 func stop_interacting():
-	is_interacting = false
+	if is_interacting:
+		is_interacting = false
+
+
+func _on_progress_finished():
+	print("Progress finished called on Interactable")

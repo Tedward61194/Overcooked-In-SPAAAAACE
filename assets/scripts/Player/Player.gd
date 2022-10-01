@@ -18,7 +18,8 @@ var hand_looking_at
 
 
 func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	pass
+	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
 func _physics_process(delta) -> void:
@@ -70,6 +71,7 @@ func check_hand_reach_ray():
 			col.get_node("Highlightable").targeted = true
 		if hand_looking_at != null and hand_looking_at.has_node("Highlightable"):
 			hand_looking_at.get_node("Highlightable").targeted = false
+			end_interact()
 		hand_looking_at = col
 
 
