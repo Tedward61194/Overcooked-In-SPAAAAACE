@@ -1,11 +1,16 @@
-extends Node
+extends Node3D
 
+# refs
+@onready var prog_bar = $ProgressBar3D
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+# logic
+var is_interacting = false:
+	set(val):
+		is_interacting = val
+		prog_bar.is_interacting = val
 
+func start_interacting():
+	is_interacting = true
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func stop_interacting():
+	is_interacting = false

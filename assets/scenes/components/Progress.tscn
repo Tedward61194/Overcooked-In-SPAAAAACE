@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjbiskub81jit"]
-
-[ext_resource type="Script" path="res://assets/scripts/Components/Progress.gd" id="1_ms1f2"]
-[ext_resource type="PackedScene" uid="uid://fr5ynqy2ik6l" path="res://assets/scenes/ui/ProgressBar.tscn" id="2_sixym"]
-
-[node name="Progress" type="Node"]
-script = ExtResource("1_ms1f2")
-
-[node name="ProgressBar" parent="." instance=ExtResource("2_sixym")]
