@@ -92,7 +92,7 @@ func start_interact():
 	if obj_in_hands == -1: # Hands are empty
 		if hand_looking_at != null and hand_looking_at.has_node("Interactable"): # Do I want to just check progress node? Fine for now
 			hand_looking_at.get_node("Interactable").start_interacting()
-			
+
 
 func end_interact():
 	if hand_looking_at != null and hand_looking_at.has_node("Interactable"): # Do I want to just check progress node? Fine for now

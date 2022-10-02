@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxkc1ts805f53"]
+
+[ext_resource type="Script" path="res://assets/scripts/Components/PlacementSlot.gd" id="1_oj14g"]
+
+[node name="PlacementSlot" type="Node3D"]
+script = ExtResource("1_oj14g")

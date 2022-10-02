@@ -2,21 +2,27 @@ extends RefCounted
 
 class_name PickupDB
 
-enum {GREEN_CUBE}
+enum {GREEN_CUBE, BLUE_CUBE, YELLOW_CUBE}
 
 
 var pick_up_scene = {
 	GREEN_CUBE: load("res://assets/scenes/pickedups/GreenCube_Pickedup.tscn"),
+	BLUE_CUBE: load("res://assets/scenes/pickedups/BlueCube_Pickedup.tscn"),
+	YELLOW_CUBE: load("res://assets/scenes/pickedups/YellowCube_Pickedup.tscn")
 }
 
 var put_down_scene = {
-	GREEN_CUBE: load("res://assets/scenes/prototype_blocks/GreenCube.tscn")
+	GREEN_CUBE: load("res://assets/scenes/prototype_blocks/GreenCube.tscn"),
+	BLUE_CUBE: load("res://assets/scenes/prototype_blocks/BlueCube.tscn"),
+	YELLOW_CUBE: load("res://assets/scenes/prototype_blocks/YellowCube.tscn")
 }
 
 var data = {}
 
 func _init():
 	_add_obj_data(GREEN_CUBE)
+	_add_obj_data(BLUE_CUBE)
+	_add_obj_data(YELLOW_CUBE)
 
-func _add_obj_data(pickup_enum : int):
-	data[pickup_enum] = PickupableData.new(pickup_enum, pick_up_scene[pickup_enum], put_down_scene[pickup_enum])
+func _add_obj_data(pickup_id : int):
+	data[pickup_id] = PickupableData.new(pickup_id, pick_up_scene[pickup_id], put_down_scene[pickup_id])

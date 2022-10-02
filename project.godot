@@ -33,13 +33,25 @@ _global_script_classes=[{
 "class": &"PlacementSlot",
 "language": &"GDScript",
 "path": "res://assets/scripts/Components/PlacementSlot.gd"
+}, {
+"base": "RefCounted",
+"class": &"RecipeDB",
+"language": &"GDScript",
+"path": "res://assets/scripts/DB/RecipeDB.gd"
+}, {
+"base": "RefCounted",
+"class": &"RecipeData",
+"language": &"GDScript",
+"path": "res://assets/scripts/DB/RecipeData.gd"
 }]
 _global_script_class_icons={
 "Highlightable": "",
 "PickupDB": "",
 "Pickupable": "",
 "PickupableData": "",
-"PlacementSlot": ""
+"PlacementSlot": "",
+"RecipeDB": "",
+"RecipeData": ""
 }
 
 [application]

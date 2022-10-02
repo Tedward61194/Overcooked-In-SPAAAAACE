@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://ceg46m6rb006y"]
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cvy0dawk2qval"]
 
 [sub_resource type="Shader" id="Shader_q6r50"]
 resource_local_to_scene = true
@@ -20,4 +20,4 @@ shader_parameter/strength = null
 [resource]
 resource_local_to_scene = true
 next_pass = SubResource("ShaderMaterial_co7s2")
-albedo_color = Color(0, 0.478431, 0.121569, 1)
+albedo_color = Color(0.180392, 0.227451, 1, 1)

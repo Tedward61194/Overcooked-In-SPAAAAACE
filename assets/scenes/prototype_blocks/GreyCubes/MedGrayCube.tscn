@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=5 format=3 uid="uid://h6yc6kmejhym"]
 
 [ext_resource type="Material" uid="uid://bsnvdt55pymtn" path="res://assets/materials/base/MedGray.tres" id="1_csi5h"]
-[ext_resource type="Script" path="res://assets/scripts/Components/PlacementSlot.gd" id="2_of104"]
+[ext_resource type="PackedScene" uid="uid://dxkc1ts805f53" path="res://assets/scenes/components/PlacementSlot.tscn" id="2_q4jil"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lvmlj"]
 
@@ -16,5 +16,4 @@ shape = SubResource("BoxShape3D_lvmlj")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_ribuw")
 
-[node name="PlacementSlot" type="Node3D" parent="."]
-script = ExtResource("2_of104")
+[node name="PlacementSlot" parent="." instance=ExtResource("2_q4jil")]

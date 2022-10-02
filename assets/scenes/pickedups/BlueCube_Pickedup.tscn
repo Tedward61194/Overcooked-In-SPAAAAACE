@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://850v5sd4wshl"]
+
+[ext_resource type="Material" uid="uid://cvy0dawk2qval" path="res://assets/materials/base/Blue.tres" id="1_v485v"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6ymvy"]
+material = ExtResource("1_v485v")
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="BlueCube_Pickedup" type="MeshInstance3D"]
+mesh = SubResource("BoxMesh_6ymvy")

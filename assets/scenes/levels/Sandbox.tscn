@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhauavinli2qm"]
+[gd_scene load_steps=8 format=3 uid="uid://dhauavinli2qm"]
 
 [ext_resource type="PackedScene" uid="uid://b7i61x4id5xuj" path="res://assets/scenes/player/Player.tscn" id="2_xv1ii"]
 [ext_resource type="PackedScene" uid="uid://daevix1m2wo3h" path="res://assets/scenes/prototype_blocks/GreyCubes/DarkGrayCube.tscn" id="3_3sh44"]
 [ext_resource type="PackedScene" uid="uid://bseo0pb030afj" path="res://assets/scenes/prototype_blocks/GreyCubes/LightGrayCube.tscn" id="3_xoxby"]
-[ext_resource type="PackedScene" path="res://assets/scenes/prototype_blocks/GreyCubes/MedGrayCube.tscn" id="4_gnr4w"]
-[ext_resource type="PackedScene" uid="uid://bh8blgnhr5kqp" path="res://assets/scenes/prototype_blocks/GreenCube.tscn" id="5_3e2fo"]
+[ext_resource type="PackedScene" uid="uid://h6yc6kmejhym" path="res://assets/scenes/prototype_blocks/GreyCubes/MedGrayCube.tscn" id="4_gnr4w"]
+[ext_resource type="PackedScene" uid="uid://druvcs3o5ou4a" path="res://assets/scenes/prototype_blocks/GreenCube.tscn" id="5_3e2fo"]
+[ext_resource type="PackedScene" uid="uid://balqy0e18b5ph" path="res://assets/scenes/prototype_blocks/BlueCube.tscn" id="6_ewhgm"]
+[ext_resource type="PackedScene" uid="uid://cp3j2vdn85mat" path="res://assets/scenes/prototype_blocks/YellowCube.tscn" id="7_ewam3"]
 
 [node name="Node3d" type="Node3D"]
 
@@ -1461,4 +1463,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="GreenCube" parent="Interactables" instance=ExtResource("5_3e2fo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -1)
+
+[node name="BlueCube" parent="Interactables" instance=ExtResource("6_ewhgm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -6)
+
+[node name="YellowCube" parent="Interactables" instance=ExtResource("7_ewam3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -6)

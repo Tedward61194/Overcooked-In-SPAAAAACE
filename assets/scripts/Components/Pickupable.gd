@@ -1,17 +1,15 @@
 extends Node3D
 class_name Pickupable
 
-# refs
 @onready var root : RigidBody3D = self.get_parent()
-var id : int
+@export var id : int # Can I make this a drop down?
 var pick_up_scene : PackedScene
 var put_down_scene : PackedScene
 
 
 func _ready():
-	id = DB.pickup_db.data[PickupDB.GREEN_CUBE].pickup_enum
-	pick_up_scene = DB.pickup_db.data[PickupDB.GREEN_CUBE].pick_up_scene
-	put_down_scene = DB.pickup_db.data[PickupDB.GREEN_CUBE].put_down_scene
+	pick_up_scene = DB.pickup_db.data[id].pick_up_scene
+	put_down_scene = DB.pickup_db.data[id].put_down_scene
 
 
 func pickup(handPosition : Node3D) -> int:
