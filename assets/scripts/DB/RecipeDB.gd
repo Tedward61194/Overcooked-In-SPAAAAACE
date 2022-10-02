@@ -38,8 +38,8 @@ func search_by_data(obj_1:int,obj_2:int, placement_slot:int) -> int:
 		if recipe["placement_slot"] == placement_slot:
 			if recipe["obj_1"] == obj_1:
 				if recipe["obj_2"] == obj_2:
-					return recipe
+					return recipe["id"]
 			if recipe["obj_1"] == obj_2:
 				if recipe["obj_2"] == obj_1:
-					recipe
+					return recipe["id"]
 	return -1 # Recipe not found

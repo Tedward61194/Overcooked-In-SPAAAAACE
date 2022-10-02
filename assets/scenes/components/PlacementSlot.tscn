@@ -4,3 +4,7 @@
 
 [node name="PlacementSlot" type="Node3D"]
 script = ExtResource("1_oj14g")
+
+[node name="RayCast3d" type="RayCast3D" parent="."]
+target_position = Vector3(0, 1, 0)
+collision_mask = 4
