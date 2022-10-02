@@ -2,7 +2,7 @@ extends Node3D
 class_name Pickupable
 
 @onready var root : RigidBody3D = self.get_parent()
-@export var id : int # Can I make this a drop down?
+@export var id : int # Can I make this a drop down? Reference an objDB?
 var pick_up_scene : PackedScene
 var put_down_scene : PackedScene
 

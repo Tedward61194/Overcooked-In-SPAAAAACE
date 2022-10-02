@@ -15,6 +15,16 @@ _global_script_classes=[{
 "path": "res://assets/scripts/Components/Highlightable.gd"
 }, {
 "base": "RefCounted",
+"class": &"ObjectDB",
+"language": &"GDScript",
+"path": "res://assets/scripts/DB/ObjectDB.gd"
+}, {
+"base": "RefCounted",
+"class": &"ObjectData",
+"language": &"GDScript",
+"path": "res://assets/scripts/DB/ObjectData.gd"
+}, {
+"base": "RefCounted",
 "class": &"PickupDB",
 "language": &"GDScript",
 "path": "res://assets/scripts/DB/PickupDB.gd"
@@ -46,6 +56,8 @@ _global_script_classes=[{
 }]
 _global_script_class_icons={
 "Highlightable": "",
+"ObjectDB": "",
+"ObjectData": "",
 "PickupDB": "",
 "Pickupable": "",
 "PickupableData": "",
