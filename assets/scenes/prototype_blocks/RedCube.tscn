@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://b65evt5pc2xqi"]
+
+[ext_resource type="Script" path="res://assets/scripts/Components/Highlightable.gd" id="1_t5im8"]
+[ext_resource type="PackedScene" uid="uid://dqj7dsrbsab4n" path="res://assets/scenes/components/Pickupable.tscn" id="2_4uvwg"]
+[ext_resource type="PackedScene" uid="uid://dv3db01ieql11" path="res://assets/scenes/components/Interactable.tscn" id="4_xhe2w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lvmlj"]
+
+[sub_resource type="Shader" id="Shader_67es8"]
+resource_local_to_scene = true
+code = "shader_type spatial;
+uniform float strength;
+
+void fragment() {
+	ALBEDO = vec3(0.88, 1.0, 0.0);
+	ALPHA = strength;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yjtmj"]
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource("Shader_67es8")
+shader_parameter/strength = null
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f8h4u"]
+resource_local_to_scene = true
+next_pass = SubResource("ShaderMaterial_yjtmj")
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7040i"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_f8h4u")
+
+[node name="RedCube" type="RigidBody3D"]
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_lvmlj")
+
+[node name="Highlightable" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_7040i")
+script = ExtResource("1_t5im8")
+
+[node name="Pickupable" parent="." instance=ExtResource("2_4uvwg")]
+id = 3
+
+[node name="Interactable" parent="." instance=ExtResource("4_xhe2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

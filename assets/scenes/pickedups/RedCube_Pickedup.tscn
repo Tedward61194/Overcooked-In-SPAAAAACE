@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpb7amixs7f0a"]
+
+[ext_resource type="Material" uid="uid://dnkh56n2qed6d" path="res://assets/materials/base/Red.tres" id="1_lr2uk"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_j6ttv"]
+material = ExtResource("1_lr2uk")
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="RedCube_Pickedup" type="MeshInstance3D"]
+mesh = SubResource("BoxMesh_j6ttv")

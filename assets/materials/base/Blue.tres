@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cvy0dawk2qval"]
 
-[sub_resource type="Shader" id="Shader_q6r50"]
+[sub_resource type="Shader" id="Shader_mvvb8"]
 resource_local_to_scene = true
 code = "shader_type spatial;
 uniform float strength;
@@ -11,13 +11,13 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_co7s2"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ycc86"]
 resource_local_to_scene = true
 render_priority = 0
-shader = SubResource("Shader_q6r50")
+shader = SubResource("Shader_mvvb8")
 shader_parameter/strength = null
 
 [resource]
 resource_local_to_scene = true
-next_pass = SubResource("ShaderMaterial_co7s2")
+next_pass = SubResource("ShaderMaterial_ycc86")
 albedo_color = Color(0.180392, 0.227451, 1, 1)
