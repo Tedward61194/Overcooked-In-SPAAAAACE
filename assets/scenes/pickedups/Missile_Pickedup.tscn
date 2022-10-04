@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://daopx1xx2tq5t"]
+
+[ext_resource type="PackedScene" uid="uid://c55h7l3s1u2oj" path="res://assets/blender/Missile_1.glb" id="1_e6cvq"]
+
+[node name="Missile_Pickedup" type="Node3D"]
+
+[node name="Missile_1" parent="." instance=ExtResource("1_e6cvq")]

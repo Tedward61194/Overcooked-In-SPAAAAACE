@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsmu858gqlfk7"]
+
+[ext_resource type="PackedScene" uid="uid://bfscxdv7yd6i0" path="res://assets/blender/Dinomite.glb" id="1_wp871"]
+
+[node name="Dinomite_Pickedup" type="Node3D"]
+
+[node name="Dinomite" parent="." instance=ExtResource("1_wp871")]

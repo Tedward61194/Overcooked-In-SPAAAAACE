@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtv4o5wtgrwh4"]
+
+[ext_resource type="PackedScene" uid="uid://bfscxdv7yd6i0" path="res://assets/blender/Dinomite.glb" id="1_8vqj3"]
+[ext_resource type="PackedScene" uid="uid://dqj7dsrbsab4n" path="res://assets/scenes/components/Pickupable.tscn" id="2_mpiu7"]
+[ext_resource type="PackedScene" uid="uid://dv3db01ieql11" path="res://assets/scenes/components/Interactable.tscn" id="3_75mag"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ejivu"]
+
+[node name="Dinomite" type="RigidBody3D"]
+collision_layer = 5
+
+[node name="Dinomite" parent="." instance=ExtResource("1_8vqj3")]
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ejivu")
+
+[node name="Pickupable" parent="." instance=ExtResource("2_mpiu7")]
+id = 4
+
+[node name="Interactable" parent="." instance=ExtResource("3_75mag")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bw1ccvdy5hbtr"]
+[gd_scene load_steps=11 format=3 uid="uid://bw1ccvdy5hbtr"]
 
 [ext_resource type="PackedScene" uid="uid://b7i61x4id5xuj" path="res://assets/scenes/player/Player.tscn" id="2_xv1ii"]
 [ext_resource type="PackedScene" uid="uid://daevix1m2wo3h" path="res://assets/scenes/prototype_blocks/GreyCubes/DarkGrayCube.tscn" id="3_3sh44"]
@@ -8,9 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://balqy0e18b5ph" path="res://assets/scenes/prototype_blocks/BlueCube.tscn" id="6_ewhgm"]
 [ext_resource type="PackedScene" uid="uid://cp3j2vdn85mat" path="res://assets/scenes/prototype_blocks/YellowCube.tscn" id="7_ewam3"]
 [ext_resource type="PackedScene" uid="uid://y61xcweajih6" path="res://assets/scenes/prototype_blocks/Workbench.tscn" id="8_yvf34"]
-[ext_resource type="PackedScene" uid="uid://c55h7l3s1u2oj" path="res://assets/blender/Missile_1.glb" id="9_a34h3"]
-[ext_resource type="PackedScene" uid="uid://c0owchhofn4i0" path="res://assets/blender/Missile_Casing_1.glb" id="10_7r4wt"]
-[ext_resource type="PackedScene" uid="uid://bfscxdv7yd6i0" path="res://assets/blender/Dinomite.glb" id="11_25gt1"]
+[ext_resource type="PackedScene" uid="uid://dtv4o5wtgrwh4" path="res://assets/scenes/Interactables/Dinomite.tscn" id="9_30ckh"]
+[ext_resource type="PackedScene" uid="uid://uhhdwxc7awck" path="res://assets/scenes/Interactables/Missile_Casing.tscn" id="10_vtumm"]
 
 [node name="Node3d" type="Node3D"]
 
@@ -1022,11 +1021,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 6)
 [node name="DarkGrayCube22" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 7)
 
-[node name="DarkGrayCube65" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -4)
-
 [node name="DarkGrayCube66" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -4)
+
+[node name="DarkGrayCube193" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -4)
 
 [node name="DarkGrayCube67" parent="LevelGeometry/Walls" instance=ExtResource("3_3sh44")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -4)
@@ -1478,11 +1477,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -6)
 [node name="Workbench" parent="Interactables" instance=ExtResource("8_yvf34")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -1, -2)
 
-[node name="Missile_1" parent="Interactables" instance=ExtResource("9_a34h3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -6)
+[node name="Dinomite" parent="Interactables" instance=ExtResource("9_30ckh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -6)
 
-[node name="Missile_Casing_1" parent="Interactables" instance=ExtResource("10_7r4wt")]
+[node name="Missile_Casing" parent="Interactables" instance=ExtResource("10_vtumm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -6)
-
-[node name="Dinomite" parent="Interactables" instance=ExtResource("11_25gt1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)

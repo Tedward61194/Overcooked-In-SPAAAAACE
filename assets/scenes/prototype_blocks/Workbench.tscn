@@ -18,4 +18,4 @@ mesh = SubResource("BoxMesh_ribuw")
 
 [node name="PlacementSlot" parent="." instance=ExtResource("2_q4jil")]
 placement_slot_id = 1
-accept_list = PackedInt32Array(0, 2)
+accept_list = PackedInt32Array(0, 2, 4, 5, 6)
