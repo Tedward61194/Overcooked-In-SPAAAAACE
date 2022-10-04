@@ -1,6 +1,6 @@
 extends RefCounted
 
-class_name PickupDB
+#class_name PickupDB
 
 enum {
 	GREEN_CUBE,

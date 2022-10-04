@@ -12,57 +12,33 @@ _global_script_classes=[{
 "base": "MeshInstance3D",
 "class": &"Highlightable",
 "language": &"GDScript",
-"path": "res://assets/scripts/Components/Highlightable.gd"
-}, {
-"base": "RefCounted",
-"class": &"ObjectDB",
-"language": &"GDScript",
-"path": "res://assets/scripts/DB/ObjectDB.gd"
-}, {
-"base": "RefCounted",
-"class": &"ObjectData",
-"language": &"GDScript",
-"path": "res://assets/scripts/DB/ObjectData.gd"
-}, {
-"base": "RefCounted",
-"class": &"PickupDB",
-"language": &"GDScript",
-"path": "res://assets/scripts/DB/PickupDB.gd"
+"path": "res://assets/scripts/components/Highlightable.gd"
 }, {
 "base": "Node3D",
 "class": &"Pickupable",
 "language": &"GDScript",
-"path": "res://assets/scripts/Components/Pickupable.gd"
+"path": "res://assets/scripts/components/Pickupable.gd"
 }, {
 "base": "RefCounted",
 "class": &"PickupableData",
 "language": &"GDScript",
-"path": "res://assets/scripts/DB/PickupableData.gd"
+"path": "res://assets/scripts/db/PickupableData.gd"
 }, {
 "base": "Node3D",
 "class": &"PlacementSlot",
 "language": &"GDScript",
-"path": "res://assets/scripts/Components/PlacementSlot.gd"
-}, {
-"base": "RefCounted",
-"class": &"RecipeDB",
-"language": &"GDScript",
-"path": "res://assets/scripts/DB/RecipeDB.gd"
+"path": "res://assets/scripts/components/PlacementSlot.gd"
 }, {
 "base": "RefCounted",
 "class": &"RecipeData",
 "language": &"GDScript",
-"path": "res://assets/scripts/DB/RecipeData.gd"
+"path": "res://assets/scripts/db/RecipeData.gd"
 }]
 _global_script_class_icons={
 "Highlightable": "",
-"ObjectDB": "",
-"ObjectData": "",
-"PickupDB": "",
 "Pickupable": "",
 "PickupableData": "",
 "PlacementSlot": "",
-"RecipeDB": "",
 "RecipeData": ""
 }
 
@@ -76,7 +52,7 @@ config/icon="res://assets/images/icon.svg"
 [autoload]
 
 Events="*res://assets/scripts/Events.gd"
-DB="*res://assets/scripts/DB/DB.gd"
+DB="*res://assets/scripts/db/DB.gd"
 
 [input]
 

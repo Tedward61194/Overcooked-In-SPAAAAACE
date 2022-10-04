@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cp3j2vdn85mat"]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource type="Material" uid="uid://cw600j0pu0lqk" path="res://assets/materials/base/Yellow.tres" id="1_crxm4"]
-[ext_resource type="Script" path="res://assets/scripts/Components/Highlightable.gd" id="1_t5im8"]
+[ext_resource type="Script" path="res://assets/scripts/components/Highlightable.gd" id="1_t5im8"]
 [ext_resource type="PackedScene" uid="uid://dqj7dsrbsab4n" path="res://assets/scenes/components/Pickupable.tscn" id="2_4uvwg"]
 [ext_resource type="PackedScene" uid="uid://dv3db01ieql11" path="res://assets/scenes/components/Interactable.tscn" id="4_xhe2w"]
 

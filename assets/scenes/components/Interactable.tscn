@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dv3db01ieql11"]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="PackedScene" uid="uid://cl7c8j18tyc84" path="res://assets/scenes/ui/ProgressBar3D.tscn" id="1_j38oc"]
-[ext_resource type="Script" path="res://assets/scripts/Components/Interactable.gd" id="1_si4h1"]
+[ext_resource type="Script" path="res://assets/scripts/components/Interactable.gd" id="1_si4h1"]
 
 [node name="Interactable" type="Node3D"]
 script = ExtResource("1_si4h1")

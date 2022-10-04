@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8jv670jvbffa"]
+[gd_scene load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://assets/scripts/Components/Highlightable.gd" id="2_ju733"]
+[ext_resource type="Script" path="res://assets/scripts/components/Highlightable.gd" id="2_ju733"]
 
 [node name="Highlightable" type="MeshInstance3D"]
 script = ExtResource("2_ju733")

@@ -1,5 +1,5 @@
 extends RefCounted
-class_name RecipeDB
+#class_name RecipeDB
 
 
 enum {

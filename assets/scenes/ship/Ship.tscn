@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4l6kvx6002mp"]
+
+[ext_resource type="Script" path="res://assets/scripts/ship/Ship.gd" id="1_4kell"]
+
+[node name="Ship" type="Node3D"]
+script = ExtResource("1_4kell")
+hull = 100
+shields = 3
+missiles = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -30.0
+offset_right = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HullLabel" type="RichTextLabel" parent="CanvasLayer/UI/HBoxContainer"]
+layout_mode = 2
+offset_bottom = 30.0
+size_flags_horizontal = 2
+text = "Hull Text Placeholder"
+
+[node name="ShieldsLabel" type="RichTextLabel" parent="CanvasLayer/UI/HBoxContainer"]
+layout_mode = 2
+offset_left = 378.0
+offset_right = 378.0
+offset_bottom = 30.0
+size_flags_horizontal = 2
+text = "Shields Text Placeholder
+"
+
+[node name="MissilesLabel" type="RichTextLabel" parent="CanvasLayer/UI/HBoxContainer"]
+layout_mode = 2
+offset_left = 757.0
+offset_right = 757.0
+offset_bottom = 30.0
+size_flags_horizontal = 2
+text = "Missiles Text Placeholder "
