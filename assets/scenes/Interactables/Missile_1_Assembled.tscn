@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://c28x5r6y075ea"]
+
+[ext_resource type="PackedScene" uid="uid://b6rtiwscniv0n" path="res://assets/blender/Missile_1_Assembled.glb" id="1_s2a5j"]
+[ext_resource type="Script" path="res://assets/scripts/interactables/Missile_1_Assembled.gd" id="1_t6hv5"]
+[ext_resource type="PackedScene" uid="uid://dqj7dsrbsab4n" path="res://assets/scenes/components/Pickupable.tscn" id="2_wbm6m"]
+[ext_resource type="PackedScene" uid="uid://dv3db01ieql11" path="res://assets/scenes/components/Interactable.tscn" id="3_d882o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ejivu"]
+
+[node name="Missile_1_Assembled" type="RigidBody3D"]
+collision_layer = 5
+script = ExtResource("1_t6hv5")
+
+[node name="Missile_1_Assembled" parent="." instance=ExtResource("1_s2a5j")]
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ejivu")
+
+[node name="Pickupable" parent="." instance=ExtResource("2_wbm6m")]
+id = 6
+
+[node name="Interactable" parent="." instance=ExtResource("3_d882o")]

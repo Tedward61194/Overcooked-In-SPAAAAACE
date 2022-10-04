@@ -2,6 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://c0owchhofn4i0" path="res://assets/blender/Missile_Casing_1.glb" id="1_wj0gu"]
 
-[node name="Missile_Casing_Pickedup" type="Node3D"]
+[node name="Missile_Assembled_Pickedup" type="Node3D"]
 
 [node name="Missile_Casing_1" parent="." instance=ExtResource("1_wj0gu")]

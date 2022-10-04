@@ -1,20 +1,20 @@
 [gd_scene load_steps=5 format=3 uid="uid://uhhdwxc7awck"]
 
-[ext_resource type="PackedScene" uid="uid://c0owchhofn4i0" path="res://assets/blender/Missile_Casing_1.glb" id="1_0votx"]
-[ext_resource type="PackedScene" uid="uid://dqj7dsrbsab4n" path="res://assets/scenes/components/Pickupable.tscn" id="2_mpiu7"]
-[ext_resource type="PackedScene" uid="uid://dv3db01ieql11" path="res://assets/scenes/components/Interactable.tscn" id="3_75mag"]
+[ext_resource type="PackedScene" uid="uid://c0owchhofn4i0" path="res://assets/blender/Missile_Casing_1.glb" id="1_cbo6x"]
+[ext_resource type="PackedScene" uid="uid://dqj7dsrbsab4n" path="res://assets/scenes/components/Pickupable.tscn" id="2_47776"]
+[ext_resource type="PackedScene" uid="uid://dv3db01ieql11" path="res://assets/scenes/components/Interactable.tscn" id="3_nvfjy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ejivu"]
 
 [node name="Missile_Casing" type="RigidBody3D"]
 collision_layer = 5
 
-[node name="Missile_Casing_1" parent="." instance=ExtResource("1_0votx")]
+[node name="Missile_Casing_1" parent="." instance=ExtResource("1_cbo6x")]
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_ejivu")
 
-[node name="Pickupable" parent="." instance=ExtResource("2_mpiu7")]
+[node name="Pickupable" parent="." instance=ExtResource("2_47776")]
 id = 5
 
-[node name="Interactable" parent="." instance=ExtResource("3_75mag")]
+[node name="Interactable" parent="." instance=ExtResource("3_nvfjy")]

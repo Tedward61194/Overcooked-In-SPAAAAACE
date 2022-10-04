@@ -2,28 +2,37 @@ extends RefCounted
 class_name RecipeDB
 
 
-enum {GREEN_CUBE, BLUE_CUBE, YELLOW_CUBE, RED_CUBE, DINOMITE, MISSILE_CASING, MISSILE}
+enum {
+	GREEN_CUBE,
+	BLUE_CUBE,
+	YELLOW_CUBE,
+	RED_CUBE,
+	DINOMITE,
+	MISSILE_CASING,
+	MISSILE_1_ASSEMBLED,
+	MISSILE
+}
 
 # Dictionaries
 # TODO: Make Object DB
 var obj_1 = {
 	GREEN_CUBE: 1,
 	RED_CUBE: 0,
-	MISSILE: 4
+	MISSILE_1_ASSEMBLED: 4
 }
 
 
 var obj_2 = {
 	GREEN_CUBE: 2,
 	RED_CUBE: 2,
-	MISSILE: 5
+	MISSILE_1_ASSEMBLED: 5
 }
 
 
 var placement_slot = {
 	GREEN_CUBE: 0, # Med Gray Cube
 	RED_CUBE: 1, # Workbench
-	MISSILE: 1 # Should probably make combined peices anywhere, then process at workbench to finish missile
+	MISSILE_1_ASSEMBLED: 1 # Should probably make combined peices anywhere, then process at workbench to finish missile
 }
 
 
@@ -33,7 +42,7 @@ var data = {}
 func _init():
 	_add_obj_data(GREEN_CUBE)
 	_add_obj_data(RED_CUBE)
-	_add_obj_data(MISSILE)
+	_add_obj_data(MISSILE_1_ASSEMBLED)
 
 func _add_obj_data(id : int):
 	data[id] = RecipeData.new(id, obj_1[id],obj_2[id], placement_slot[id])

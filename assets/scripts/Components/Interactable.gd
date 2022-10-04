@@ -1,5 +1,8 @@
 extends Node3D
 
+# signals
+signal progress_finished()
+
 # refs
 @onready var prog_bar = $ProgressBar3D
 
@@ -24,4 +27,4 @@ func stop_interacting():
 
 
 func _on_progress_finished():
-	print("Progress finished called on Interactable")
+	emit_signal("progress_finished")
