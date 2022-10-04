@@ -24,7 +24,7 @@ ProgressBar/styles/background = SubResource("StyleBoxFlat_6y2dy")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_lcvbi")
 
 [node name="ProgressBar" type="ProgressBar"]
-offset_right = 300.0
+offset_right = 100.0
 offset_bottom = 30.0
 theme = SubResource("Theme_pmabe")
 show_percentage = false

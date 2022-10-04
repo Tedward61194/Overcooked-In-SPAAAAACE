@@ -20,3 +20,5 @@ shape = SubResource("BoxShape3D_ejivu")
 id = 6
 
 [node name="Interactable" parent="." instance=ExtResource("3_d882o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+interaction_locations = PackedInt32Array(1)
