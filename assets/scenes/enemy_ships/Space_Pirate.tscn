@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyxaictxb6bml"]
+
+[ext_resource type="Script" path="res://assets/scripts/enemy_ships/SpacePirate.gd" id="1_hyevc"]
+
+[node name="Space_Pirate" type="Node3D"]
+script = ExtResource("1_hyevc")
+
+[node name="Shoot_Missile_Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Missile_Travel_Time" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="Shoot_Missile_Timer" to="." method="_on_shoot_missile_timer_timeout"]
+[connection signal="timeout" from="Missile_Travel_Time" to="." method="_on_missile_travel_time_timeout"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlqtf2fxaeqxo"]
+
+[ext_resource type="Script" path="res://assets/scripts/encounters/Encounter_Space_Pirate.gd" id="1_nmon6"]
+
+[node name="Encounter_Space_Pirate" type="Node"]
+script = ExtResource("1_nmon6")

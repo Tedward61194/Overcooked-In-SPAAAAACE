@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d4l6kvx6002mp"]
+[gd_scene load_steps=3 format=3 uid="uid://d4l6kvx6002mp"]
 
 [ext_resource type="Script" path="res://assets/scripts/ship/Ship.gd" id="1_4kell"]
+[ext_resource type="PackedScene" uid="uid://vlw6cpuxj3uk" path="res://assets/scenes/ui/HUD.tscn" id="2_n7xsm"]
 
 [node name="Ship" type="Node3D"]
 script = ExtResource("1_4kell")
@@ -8,47 +9,38 @@ hull = 100
 shields = 3
 missiles = 1
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="UI" type="Control" parent="CanvasLayer"]
-layout_mode = 3
+[node name="Viewports" type="HBoxContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = -30.0
-offset_right = -10.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="MainViewport" type="SubViewportContainer" parent="Viewports"]
+offset_right = 1532.0
+offset_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+stretch = true
 
-[node name="HullLabel" type="RichTextLabel" parent="CanvasLayer/UI/HBoxContainer"]
-layout_mode = 2
-offset_bottom = 30.0
-size_flags_horizontal = 2
-text = "Hull Text Placeholder"
+[node name="SubViewport" type="SubViewport" parent="Viewports/MainViewport"]
+handle_input_locally = false
+size = Vector2i(1532, 1080)
+render_target_update_mode = 4
 
-[node name="ShieldsLabel" type="RichTextLabel" parent="CanvasLayer/UI/HBoxContainer"]
-layout_mode = 2
-offset_left = 378.0
-offset_right = 378.0
-offset_bottom = 30.0
-size_flags_horizontal = 2
-text = "Shields Text Placeholder
-"
+[node name="Camera3d" type="Camera3D" parent="Viewports/MainViewport/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.0871558, 0.996195, 0, -0.996195, 0.0871558, 0, 10.5, -0.339)
+fov = 80.0
 
-[node name="MissilesLabel" type="RichTextLabel" parent="CanvasLayer/UI/HBoxContainer"]
-layout_mode = 2
-offset_left = 757.0
-offset_right = 757.0
-offset_bottom = 30.0
-size_flags_horizontal = 2
-text = "Missiles Text Placeholder "
+[node name="HUDContainer" parent="Viewports" instance=ExtResource("2_n7xsm")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1536.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 1
+grow_vertical = 1

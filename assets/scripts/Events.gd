@@ -1,4 +1,3 @@
 extends Node
 
-signal interact()
-signal progress_completed()
+signal enemy_missile_shot(warning_message:String, travel_timer:float)
