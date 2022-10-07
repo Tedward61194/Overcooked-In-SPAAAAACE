@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dyo6q4ta8l7kx"]
 
 [ext_resource type="PackedScene" uid="uid://c55h7l3s1u2oj" path="res://assets/blender/Missile_1.glb" id="1_6gufn"]
-[ext_resource type="PackedScene" uid="uid://dqj7dsrbsab4n" path="res://assets/scenes/components/Pickupable.tscn" id="2_4l52p"]
+[ext_resource type="PackedScene" uid="uid://d3e04ap6yep4g" path="res://assets/scenes/components/Pickupable.tscn" id="2_4l52p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ejivu"]
 

@@ -1,16 +1,17 @@
-[gd_scene load_steps=13 format=3 uid="uid://qa78f7kn80i1"]
+[gd_scene load_steps=14 format=3 uid="uid://qa78f7kn80i1"]
 
 [ext_resource type="PackedScene" path="res://assets/scenes/player/Player.tscn" id="2_xv1ii"]
 [ext_resource type="PackedScene" uid="uid://daevix1m2wo3h" path="res://assets/scenes/prototype_blocks/GreyCubes/DarkGrayCube.tscn" id="3_3sh44"]
 [ext_resource type="PackedScene" uid="uid://bseo0pb030afj" path="res://assets/scenes/prototype_blocks/GreyCubes/LightGrayCube.tscn" id="3_xoxby"]
 [ext_resource type="PackedScene" uid="uid://h6yc6kmejhym" path="res://assets/scenes/prototype_blocks/GreyCubes/MedGrayCube.tscn" id="4_gnr4w"]
 [ext_resource type="PackedScene" path="res://assets/scenes/prototype_blocks/GreenCube.tscn" id="5_3e2fo"]
-[ext_resource type="PackedScene" path="res://assets/scenes/prototype_blocks/BlueCube.tscn" id="6_ewhgm"]
+[ext_resource type="PackedScene" uid="uid://21qdabjyoofp" path="res://assets/scenes/prototype_blocks/BlueCube.tscn" id="6_ewhgm"]
 [ext_resource type="PackedScene" path="res://assets/scenes/prototype_blocks/YellowCube.tscn" id="7_ewam3"]
 [ext_resource type="PackedScene" uid="uid://y61xcweajih6" path="res://assets/scenes/prototype_blocks/Workbench.tscn" id="8_yvf34"]
 [ext_resource type="PackedScene" uid="uid://dtv4o5wtgrwh4" path="res://assets/scenes/interactables/Dinomite.tscn" id="9_30ckh"]
 [ext_resource type="PackedScene" uid="uid://uhhdwxc7awck" path="res://assets/scenes/interactables/Missile_Casing.tscn" id="10_twbt0"]
 [ext_resource type="PackedScene" uid="uid://d4l6kvx6002mp" path="res://assets/scenes/ship/Ship.tscn" id="11_xmkgs"]
+[ext_resource type="PackedScene" uid="uid://di5b0a2s8heas" path="res://assets/scenes/interactables/Energy_Cell_Empty.tscn" id="12_ujkrs"]
 [ext_resource type="PackedScene" uid="uid://dlqtf2fxaeqxo" path="res://assets/scenes/encounter/Encounter_Space_Pirate.tscn" id="12_vwgki"]
 
 [node name="Node3d" type="Node3D"]
@@ -1478,9 +1479,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -6)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -1, -2)
 
 [node name="Dinomite" parent="Interactables" instance=ExtResource("9_30ckh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -6)
 
 [node name="Missile_Casing" parent="Interactables" instance=ExtResource("10_twbt0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -6)
+
+[node name="Energy_Cell_Empty" parent="Interactables" instance=ExtResource("12_ujkrs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
 
 [node name="Encounter_Space_Pirate" parent="." instance=ExtResource("12_vwgki")]

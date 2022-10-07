@@ -4,14 +4,13 @@
 
 [node name="Space_Pirate" type="Node3D"]
 script = ExtResource("1_hyevc")
+hull = 50
+shields = 1
+missile_travel_time = 10
+missile_damage = 10
 
 [node name="Shoot_Missile_Timer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
 
-[node name="Missile_Travel_Time" type="Timer" parent="."]
-wait_time = 10.0
-one_shot = true
-
 [connection signal="timeout" from="Shoot_Missile_Timer" to="." method="_on_shoot_missile_timer_timeout"]
-[connection signal="timeout" from="Missile_Travel_Time" to="." method="_on_missile_travel_time_timeout"]

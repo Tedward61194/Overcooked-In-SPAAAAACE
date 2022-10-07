@@ -10,7 +10,8 @@ enum {
 	DINOMITE,
 	MISSILE_CASING,
 	MISSILE_1_ASSEMBLED,
-	MISSILE
+	MISSILE,
+	ENERGY_CELL_EMPTY
 }
 
 
@@ -22,7 +23,8 @@ var pick_up_scene = {
 	DINOMITE: load("res://assets/scenes/pickedups/Dinomite_Pickedup.tscn"),
 	MISSILE_CASING: load("res://assets/scenes/pickedups/Missile_Casing_Pickedup.tscn"),
 	MISSILE_1_ASSEMBLED: load("res://assets/scenes/pickedups/Missile_1_Assembled_Pickedup.tscn"),
-	MISSILE: load("res://assets/scenes/pickedups/Missile_Pickedup.tscn")
+	MISSILE: load("res://assets/scenes/pickedups/Missile_Pickedup.tscn"),
+	ENERGY_CELL_EMPTY: load("res://assets/scenes/pickedups/Energy_Cell_Empty_Pickedup.tscn")
 }
 
 var put_down_scene = {
@@ -33,7 +35,8 @@ var put_down_scene = {
 	DINOMITE: load("res://assets/scenes/interactables/Dinomite.tscn"),
 	MISSILE_CASING: load("res://assets/scenes/interactables/Missile_Casing.tscn"),
 	MISSILE_1_ASSEMBLED: load("res://assets/scenes/interactables/Missile_1_Assembled.tscn"),
-	MISSILE: load("res://assets/scenes/interactables/Missile.tscn")
+	MISSILE: load("res://assets/scenes/interactables/Missile.tscn"),
+	ENERGY_CELL_EMPTY: load("res://assets/scenes/interactables/Energy_Cell_Empty.tscn")
 }
 
 var data = {}
@@ -47,6 +50,7 @@ func _init():
 	_add_obj_data(MISSILE_CASING)
 	_add_obj_data(MISSILE_1_ASSEMBLED)
 	_add_obj_data(MISSILE)
+	_add_obj_data(ENERGY_CELL_EMPTY)
 
 func _add_obj_data(pickup_id : int):
 	data[pickup_id] = PickupableData.new(pickup_id, pick_up_scene[pickup_id], put_down_scene[pickup_id])
